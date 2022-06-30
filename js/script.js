@@ -11,15 +11,15 @@ Cerchiamo di fare almeno un commit per ogni milestone!
 Prepariamo l'HTML ed il CSS per ottenere il risultato grafico che vediamo nell'immagine allegata.
 
 
-/////*#MILESTONE 2
+////#MILESTONE 2
 Rimuoviamo le celle che abbiamo inserito nell'HTML in modo da generarle tramite JS. Al click del bottone play, vengono generate 100 celle in 10 righe da 10 celle ciascuna.
 
 
-/////#MILESTONE 3
+////#MILESTONE 3
 In ogni cella, deve comparire il numero corrispondente, in ordine da 1 a 100;
 
 
-#MILESTONE 4
+////#MILESTONE 4
 Al click sulla cella, stampiamo il numero della cella cliccata in console, poi coloriamo la cella d'azzurro!
 
 
@@ -34,13 +34,17 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 
 //FUNZIONE CREAZIONE CELLA
 function createCell() {
-    const cell = document.createElement('div');
-    cell.className = 'cell'
-    return cell;
+    const cella = document.createElement('div');
+    cella.className = 'cell';
+    cella.addEventListener('click', () => {
+        cella.classList.toggle('azure')
+        console.log(cella.innerHTML)
+    });
+    return cella;
 }
 //RECUPERO ELEMENTO DAL DOM
 const grid = document.getElementById('grid');
-const button = document.getElementById('button')
+const button = document.getElementById('button');
 
 //IMPOSTAZIONI INIZIALI X DETERMINARE IL NUMERO DI RIGHE E COLONNE
 
@@ -49,16 +53,19 @@ const cells = 10;
 const totalCells = rows * cells;
 
 
-// MOSTRO IN PAGINA LA GRIGLIA TRAMITE UN EVENT LISTNER
-button.addEventListener('click', () => {
-
+// MOSTRO IN PAGINA LA GRIGLIA TRAMITE UN EVENT LISTNER AL BUTTON
+button.addEventListener('click', (event) => {
+    console.log(event)    // CICLO FOR
     for (let i = 1; i <= totalCells; i++) {
         const cell = createCell();
         grid.appendChild(cell);
-        cell.innerHTML = [i];
-        console.log(cell)
+        //STAMPO PER OGNI DIV CREATO IL NUMERO A CUI EGLI APPARTIENE NELLA GRIGLA
+        cell.innerHTML = i;
+        button.innerHTML = 'Play again'
+        console.log(cell);
     }
-    
 })
+
+
 
 

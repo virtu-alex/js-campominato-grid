@@ -55,6 +55,8 @@ const totalCells = rows * cells;
 
 // MOSTRO IN PAGINA LA GRIGLIA TRAMITE UN EVENT LISTNER AL BUTTON
 button.addEventListener('click', (event) => {
+    grid.innerHTML = "";
+
     console.log(event)    // CICLO FOR
     for (let i = 1; i <= totalCells; i++) {
         const cell = createCell();

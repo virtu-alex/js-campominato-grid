@@ -11,9 +11,11 @@ Cerchiamo di fare almeno un commit per ogni milestone!
 Prepariamo l'HTML ed il CSS per ottenere il risultato grafico che vediamo nell'immagine allegata.
 
 
+/////*#MILESTONE 2
+Rimuoviamo le celle che abbiamo inserito nell'HTML in modo da generarle tramite JS. Al click del bottone play, vengono generate 100 celle in 10 righe da 10 celle ciascuna.
 
 
-#MILESTONE 3
+/////#MILESTONE 3
 In ogni cella, deve comparire il numero corrispondente, in ordine da 1 a 100;
 
 
@@ -29,8 +31,6 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;*/
 
 
-/*#MILESTONE 2
-Rimuoviamo le celle che abbiamo inserito nell'HTML in modo da generarle tramite JS. Al click del bottone play, vengono generate 100 celle in 10 righe da 10 celle ciascuna.*/
 
 //FUNZIONE CREAZIONE CELLA
 function createCell() {
@@ -49,12 +49,14 @@ const cells = 10;
 const totalCells = rows * cells;
 
 
-// MOSTRO IN PAGINE LA GRIGLIA TRAMITE UN EVENT LISTNER
+// MOSTRO IN PAGINA LA GRIGLIA TRAMITE UN EVENT LISTNER
 button.addEventListener('click', () => {
 
     for (let i = 1; i <= totalCells; i++) {
         const cell = createCell();
         grid.appendChild(cell);
+        cell.innerHTML = [i];
+        console.log(cell)
     }
     
 })
